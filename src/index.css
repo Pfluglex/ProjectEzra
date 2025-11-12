@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark mode by default with neon red accent */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 84% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 84% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 0 84% 60%;
+    --radius: 0.75rem;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+}
+
+/* Custom animations */
+@keyframes gradientFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 59, 74, 0.4), 0 0 40px rgba(255, 59, 74, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 59, 74, 0.6), 0 0 60px rgba(255, 59, 74, 0.3);
+  }
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 59, 74, 0.8), 0 0 20px rgba(255, 59, 74, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 59, 74, 1), 0 0 30px rgba(255, 59, 74, 0.7);
+  }
+}
+
+.gradient-animate {
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow-effect {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.neon-text {
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+.neon-border {
+  border: 1px solid rgba(255, 59, 74, 0.3);
+  box-shadow: 0 0 10px rgba(255, 59, 74, 0.2), inset 0 0 10px rgba(255, 59, 74, 0.1);
+}
+
+/* Glassmorphism effects */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Research category colors */
+.research-campus-life {
+  --category-color: #9333EA;
+}
+.research-fine-arts {
+  --category-color: #F2A900;
+}
+.research-health-safety {
+  --category-color: #67823A;
+}
+.research-immersive {
+  --category-color: #00A9E0;
+}
+.research-psychology {
+  --category-color: #9A3324;
+}
+.research-sustainability {
+  --category-color: #B5BD00;
+}
+
+/* Leaflet fixes */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
