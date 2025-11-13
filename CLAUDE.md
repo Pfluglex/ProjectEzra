@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - React 18 with TypeScript
 - Vite build system
 - Tailwind CSS v3 with Pfluger brand colors
-- Leaflet for interactive mapping
+- Mapbox GL JS for 3D interactive mapping
 - Recharts for data visualization
 - Framer Motion for animations
 - Radix UI for accessible components
@@ -183,19 +183,50 @@ vite.config.ts                           # Vite configuration
 
 ### Map Integration
 
-The Research Campus map (ResearchMap.tsx) uses Leaflet with:
-- Dark CARTO tiles for background
-- Custom circular markers with embedded Lucide icons
-- Click to open detail sidebar
+The Research Campus map (ResearchMap.tsx) uses Mapbox GL JS with:
+- Mapbox Standard Night style with 3D buildings
+- Mercator projection for fast loading
+- Default Mapbox pin markers colored by category
+- Smooth flyTo animations on marker/project click
 - Search and filter functionality
-- Category legend with icon reference
+- Interactive project list and detail panel
+
+**3D Map Features:**
+- Initial pitch: 30° for 3D perspective view
+- Click zoom: 11 with 45° pitch for optimal project viewing
+- Zoom range: 3 (min) to 18 (max)
+- Built-in 3D building extrusions from Standard Night style
+- Smooth 2-second flyTo animations
+- Antialias enabled for smooth 3D rendering
+
+**Map Configuration:**
+- Mapbox access token stored in `src/config/mapbox.ts`
+- Free tier: 50,000 map loads per month
+- Default center: Austin, Texas (-97.7431, 30.2672)
+- Projection: Mercator (disables globe for faster loading)
+- POI labels and street names hidden for cleaner appearance
 
 **Map Features:**
-- Full-height left sidebar with search, filters, and legend
-- Project detail panel slides in from left on marker click
-- Tooltips show project title and ID on hover
-- Markers color-coded by research category
-- Confidential projects styled with gray gradient and lock icon
+- Full-height left sidebar (80-width) with:
+  - Search box for filtering by title/researcher
+  - Category dropdown filter
+  - Scrollable project list
+  - Color-coded legend
+- Project detail panel (96-width) slides in from left showing:
+  - Project title, ID, researcher
+  - Phase badge
+  - Description
+  - Timeline (start/completion dates)
+  - Research partners
+- Default Mapbox pin markers:
+  - Colored by research category
+  - Scale: 1 (full size)
+  - Popups on hover with title and ID
+  - Click to open detail panel and fly to location
+- Confidential projects (RB09, RB10, RB11):
+  - Gray markers (#666666)
+  - Special styling in detail panel
+  - Lock icon indicator
 
 ### Confidential Projects
 

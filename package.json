@@ -41,6 +41,7 @@
     "framer-motion": "^12.23.24",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.553.0",
+    "mapbox-gl": "^3.16.0",
     "papaparse": "^5.5.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -51,6 +52,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@types/mapbox-gl": "^3.4.1",
     "@types/node": "^24.10.0",
     "@types/papaparse": "^5.5.0",
     "@types/react": "^19.2.2",

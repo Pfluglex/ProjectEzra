@@ -13,7 +13,7 @@ EZRA serves two audiences:
 - **React 18** with TypeScript
 - **Vite** - Build tooling
 - **Tailwind CSS v3** - Styling with Pfluger brand colors
-- **Leaflet** - Interactive mapping
+- **Mapbox GL JS** - 3D interactive mapping with perspective view
 - **Recharts** - Data visualizations
 - **Framer Motion** - Smooth animations
 - **Radix UI** - Accessible components
